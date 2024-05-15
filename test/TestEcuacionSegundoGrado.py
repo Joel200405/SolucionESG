@@ -1,5 +1,6 @@
 import unittest
-from src.logica.EcuacionSegundoGrado import  EcuacionSegundoGrado
+from src.logica.EcuacionSegundoGrado import EcuacionSegundoGrado
+
 
 class TestEcuacionSegundoGrado(unittest.TestCase):
     def setUp(self):
@@ -7,20 +8,23 @@ class TestEcuacionSegundoGrado(unittest.TestCase):
 
     def tearDown(self):
         self.calculoRaices = None
+
     def test_calculoESG_dosNumeros_retornaSolucion(self):
-        #Arrange
-        a = 1
-        b = 2
+        # Arrange
+
+        a = 3
+        b = -5
         c = 1
-        resultadoEsperadoRaiz1 = -1
-        resultadoEsperadoRaiz2 = -1
+        resultadoEsperadoRaiz1 = 1.43
+        resultadoEsperadoRaiz2 = 0.23
 
-        #Do
-        resultadoActualRaiz1, resultadoActualRaiz2 = self.calculoRaices.calculoEcuacionSegundoGrado(a,b,c)
+        # Do
+        resultadoActualRaiz1, resultadoActualRaiz2 = self.calculoRaices.calculoEcuacionSegundoGrado(a, b, c)
 
-        #Assert
-        self.assertEqual(resultadoEsperadoRaiz1, resultadoActualRaiz1)
-        self.assertEqual(resultadoEsperadoRaiz2, resultadoActualRaiz2)
+        # Assert
+        self.assertAlmostEqual(resultadoEsperadoRaiz1, resultadoActualRaiz1, 2)
+        self.assertAlmostEqual(resultadoEsperadoRaiz2, resultadoActualRaiz2, 2)
+
 
 if __name__ == '__main__':
     unittest.main()
